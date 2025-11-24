@@ -1,6 +1,31 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 :root {
+  --font-inter: 'Inter', sans-serif;
+}
+
+@theme inline {
+  --default-font-family: var(--font-inter), var(--font-sans);
+
+  --color-primary-dark: #e67700;
+}
+
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: 'light';
+  default: true;
+  prefersdark: true;
+  --color-primary: #fcc419;
+}
+
+ul.menu li a:active {
+  @apply bg-white text-neutral;
+}
+
+.active {
+  @apply text-primary-dark font-medium;
+}
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +48,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
