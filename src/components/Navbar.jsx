@@ -49,7 +49,7 @@ export default function Navbar() {
           </ul>
         </div>
         <Link href='/' className='text-xl'>
-          MeowKetPlace
+          MeowketPlace
         </Link>
       </div>
       {/* Nav Center */}
