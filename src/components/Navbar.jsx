@@ -7,7 +7,7 @@ import Logout from './Logout';
 export default async function Navbar() {
   const session = await auth();
 
-  console.log(session);
+  console.log('Navbar session', session);
 
   return (
     <div className='navbar'>
@@ -21,7 +21,6 @@ export default async function Navbar() {
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'>
-              {' '}
               <path
                 strokeLinecap='round'
                 strokeLinejoin='round'
@@ -57,8 +56,11 @@ export default async function Navbar() {
           <div className='dropdown dropdown-end'>
             <div tabIndex={0} role='image' className='cursor-pointer m-1'>
               <Image
-                src={session?.user?.image}
-                alt={session?.user?.name}
+                src={
+                  session?.user?.image ??
+                  'https://i.ibb.co.com/fzYGmQj8/avatar-placeholder.gif'
+                }
+                alt={session?.user?.name ?? ''}
                 width={40}
                 height={40}
                 className='rounded-full'

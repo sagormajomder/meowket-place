@@ -1,6 +1,7 @@
 'use server';
 
 import { signIn, signOut } from '@/auth';
+import { revalidatePath } from 'next/cache';
 
 export async function doSocialLogin(formData) {
   const action = formData.get('action');
@@ -18,6 +19,9 @@ export async function doCredentialLogin(formData) {
       password: formData.get('password'),
       redirect: false,
     });
+
+    // console.log('Index response: ', response);
+    revalidatePath('/');
     return response;
   } catch (error) {
     throw new Error(error);

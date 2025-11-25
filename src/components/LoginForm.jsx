@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function LoginForm() {
-  const router = useRouter();
   const [error, setError] = useState('');
+  const router = useRouter();
 
   async function handleUserLogin(e) {
     e.preventDefault();
@@ -14,12 +14,13 @@ export default function LoginForm() {
       const formData = new FormData(e.currentTarget);
 
       const response = await doCredentialLogin(formData);
-      console.log(response);
+      // console.log('LoginForm response: ', response);
 
       if (response.error) {
         console.error(response.error);
         setError(response.error.message);
       } else {
+        router.refresh();
         router.push('/');
       }
     } catch (error) {
