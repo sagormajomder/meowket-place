@@ -4,7 +4,7 @@ export default function GoogleLoginButton() {
       type='submit'
       name='action'
       value='google'
-      className='btn bg-white text-black border-[#e5e5e5] mb-4'>
+      className='btn bg-white text-black border-[#e5e5e5] mb-4 w-full'>
       <svg
         aria-label='Google logo'
         width='16'

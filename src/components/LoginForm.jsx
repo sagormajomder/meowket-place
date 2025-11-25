@@ -7,6 +7,7 @@ import { useState } from 'react';
 export default function LoginForm() {
   const router = useRouter();
   const [error, setError] = useState('');
+
   async function handleUserLogin(e) {
     e.preventDefault();
     try {
@@ -23,7 +24,7 @@ export default function LoginForm() {
       }
     } catch (error) {
       console.error(error);
-      setError('Check your Credentials');
+      setError('Wrong Credentials! Please check your Credentials');
     }
   }
   return (
@@ -64,7 +65,7 @@ export default function LoginForm() {
         </div>
         <button className='btn btn-primary mt-4 text-neutral'>Login</button>
       </fieldset>
-      <div className='text-xl text-red-500'>{error}</div>
+      <div className='text-xl text-red-500 text-center mt-1'>{error}</div>
     </form>
   );
 }

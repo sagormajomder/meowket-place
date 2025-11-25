@@ -7,7 +7,7 @@ import Logout from './Logout';
 export default async function Navbar() {
   const session = await auth();
 
-  // console.log(session);
+  console.log(session);
 
   return (
     <div className='navbar'>
