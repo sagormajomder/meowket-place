@@ -25,6 +25,16 @@ ul.menu li a:active {
   @apply text-primary-dark font-medium;
 }
 
+@utility heading-secondary {
+  @apply xl:text-3xl text-2xl font-semibold mb-2;
+}
+@utility heading-tertiary {
+  @apply xl:text-2xl text-xl font-semibold mb-2;
+}
+@utility heading-4 {
+  @apply xl:text-xl text-lg font-semibold;
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;

@@ -1,25 +1,13 @@
-'use client';
+import { auth } from '@/auth';
+import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Links from './Links';
+import Logout from './Logout';
 
-export default function Navbar() {
-  const pathname = usePathname();
-  const links = (
-    <>
-      <li>
-        <Link href='/' className={` ${pathname === '/' ? 'active' : ''}`}>
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          href='/products'
-          className={` ${pathname === '/products' ? 'active' : ''}`}>
-          Products
-        </Link>
-      </li>
-    </>
-  );
+export default async function Navbar() {
+  const session = await auth();
+
+  // console.log(session);
 
   return (
     <div className='navbar'>
@@ -45,7 +33,7 @@ export default function Navbar() {
           <ul
             tabIndex='-1'
             className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow'>
-            {links}
+            <Links />
           </ul>
         </div>
         <Link href='/' className='text-xl'>
@@ -54,13 +42,54 @@ export default function Navbar() {
       </div>
       {/* Nav Center */}
       <div className='navbar-center hidden lg:flex'>
-        <ul className='menu menu-horizontal px-1'>{links}</ul>
+        <ul className='menu menu-horizontal px-1'>
+          <Links />
+        </ul>
       </div>
       {/* Nav End */}
       <div className='navbar-end'>
-        <Link href='/login' className='btn btn-primary text-neutral'>
-          Login
-        </Link>
+        {!session && (
+          <Link href='/login' className='btn btn-primary text-neutral'>
+            Login
+          </Link>
+        )}
+        {session && (
+          <div className='dropdown dropdown-end'>
+            <div tabIndex={0} role='image' className='cursor-pointer m-1'>
+              <Image
+                src={session?.user?.image}
+                alt={session?.user?.name}
+                width={40}
+                height={40}
+                className='rounded-full'
+              />
+            </div>
+            <ul
+              tabIndex='-1'
+              className='dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-1'>
+              <li>
+                <h3 className='text-2xl text-center text-secondary'>
+                  {session?.user?.name}
+                </h3>
+              </li>
+              <li>({session?.user?.email})</li>
+              <hr className='mb-3' />
+              <li className='mb-2'>
+                <Link className='hover:text-accent' href='/add-product'>
+                  Add Product
+                </Link>
+              </li>
+              <li className='mb-2'>
+                <Link className='hover:text-accent' href='/my-product'>
+                  Manage Product
+                </Link>
+              </li>
+              <li>
+                <Logout />
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
