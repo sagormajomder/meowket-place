@@ -8,7 +8,7 @@ export default async function Navbar() {
   // const { isLoaded, isSignedIn, user } = useUser();
 
   const user = await currentUser();
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className='navbar'>
@@ -79,12 +79,18 @@ export default async function Navbar() {
               <li>({user?.primaryEmailAddress.emailAddress})</li>
               <hr className='mb-3' />
               <li className='mb-2'>
-                <Link className='hover:text-accent' href='/add-product'>
+                <Link
+                  prefetch={false}
+                  className='hover:text-accent'
+                  href='/add-product'>
                   Add Product
                 </Link>
               </li>
               <li className='mb-2'>
-                <Link className='hover:text-accent' href='/my-product'>
+                <Link
+                  prefetch={false}
+                  className='hover:text-accent'
+                  href='/my-product'>
                   Manage Product
                 </Link>
               </li>
