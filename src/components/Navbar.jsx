@@ -1,26 +1,14 @@
-'use client';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignOutButton } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
+import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import MenuLinks from './MenuLinks';
 
-export default function Navbar() {
-  const pathname = usePathname();
-  const links = (
-    <>
-      <li>
-        <Link href='/' className={` ${pathname === '/' ? 'active' : ''}`}>
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          href='/products'
-          className={` ${pathname === '/products' ? 'active' : ''}`}>
-          Products
-        </Link>
-      </li>
-    </>
-  );
+export default async function Navbar() {
+  // const { isLoaded, isSignedIn, user } = useUser();
+
+  const user = await currentUser();
+  console.log(user);
 
   return (
     <div className='navbar'>
@@ -46,7 +34,7 @@ export default function Navbar() {
           <ul
             tabIndex='-1'
             className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow'>
-            {links}
+            <MenuLinks />
           </ul>
         </div>
         <Link href='/' className='text-xl'>
@@ -55,7 +43,9 @@ export default function Navbar() {
       </div>
       {/* Nav Center */}
       <div className='navbar-center hidden lg:flex'>
-        <ul className='menu menu-horizontal px-1'>{links}</ul>
+        <ul className='menu menu-horizontal px-1'>
+          <MenuLinks />
+        </ul>
       </div>
       {/* Nav End */}
       <div className='navbar-end'>
@@ -65,7 +55,48 @@ export default function Navbar() {
           </Link>
         </SignedOut>
         <SignedIn>
-          <UserButton />
+          <div className='dropdown dropdown-end'>
+            <div tabIndex={0} role='image' className='cursor-pointer m-1'>
+              <Image
+                src={
+                  user?.imageUrl ??
+                  'https://i.ibb.co.com/fzYGmQj8/avatar-placeholder.gif'
+                }
+                alt={user?.firstName ?? ''}
+                width={40}
+                height={40}
+                className='rounded-full'
+              />
+            </div>
+            <ul
+              tabIndex='-1'
+              className='dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-1'>
+              <li>
+                <h3 className='text-2xl text-center text-secondary'>
+                  {user?.fullName}
+                </h3>
+              </li>
+              <li>({user?.primaryEmailAddress.emailAddress})</li>
+              <hr className='mb-3' />
+              <li className='mb-2'>
+                <Link className='hover:text-accent' href='/add-product'>
+                  Add Product
+                </Link>
+              </li>
+              <li className='mb-2'>
+                <Link className='hover:text-accent' href='/my-product'>
+                  Manage Product
+                </Link>
+              </li>
+              <li>
+                <SignOutButton>
+                  <button className='btn btn-primary text-neutral w-full'>
+                    Logout
+                  </button>
+                </SignOutButton>
+              </li>
+            </ul>
+          </div>
         </SignedIn>
       </div>
     </div>
