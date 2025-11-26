@@ -1,6 +1,7 @@
 import Container from '@/components/Container';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import { ClerkProvider } from '@clerk/nextjs';
 import { Inter } from 'next/font/google';
 import './../globals.css';
 
@@ -16,16 +17,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body className='grid grid-rows-[auto_1fr_auto] min-h-dvh'>
-        <header className='shadow-sm py-1.5 sticky top-0'>
-          <Container>
-            <Navbar />
-          </Container>
-        </header>
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang='en'>
+        <body className='grid grid-rows-[auto_1fr_auto] min-h-dvh'>
+          <header className='shadow-sm py-1.5 sticky top-0'>
+            <Container>
+              <Navbar />
+            </Container>
+          </header>
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

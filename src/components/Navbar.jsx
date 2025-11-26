@@ -1,4 +1,5 @@
 'use client';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -58,9 +59,14 @@ export default function Navbar() {
       </div>
       {/* Nav End */}
       <div className='navbar-end'>
-        <Link href='/login' className='btn btn-primary text-neutral'>
-          Login
-        </Link>
+        <SignedOut>
+          <Link href='/login' className='btn btn-primary text-neutral'>
+            Login
+          </Link>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </div>
   );
