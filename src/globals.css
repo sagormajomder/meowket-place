@@ -25,6 +25,10 @@ ul.menu li a:active {
   @apply text-primary-dark font-medium;
 }
 
+/* .cl-formButtonPrimary {
+  @apply bg-primary border-none outline-none !shadow-none;
+} */
+
 @utility heading-secondary {
   @apply xl:text-3xl text-2xl font-semibold mb-2;
 }

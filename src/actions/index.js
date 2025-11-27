@@ -1,29 +1,19 @@
 'use server';
 
-import { signIn, signOut } from '@/auth';
-import { revalidatePath } from 'next/cache';
+export async function doCreateProduct(data) {
+  // console.log('action', data);
 
-export async function doSocialLogin(formData) {
-  const action = formData.get('action');
-  await signIn(action, { redirectTo: '/' });
-}
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/add-product`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }
+  );
 
-export async function doLogout() {
-  await signOut({ redirectTo: '/' });
-}
-
-export async function doCredentialLogin(formData) {
-  try {
-    const response = await signIn('credentials', {
-      email: formData.get('email'),
-      password: formData.get('password'),
-      redirect: false,
-    });
-
-    // console.log('Index response: ', response);
-    revalidatePath('/');
-    return response;
-  } catch (error) {
-    throw new Error(error);
-  }
+  const resData = await res.json();
+  return resData;
 }

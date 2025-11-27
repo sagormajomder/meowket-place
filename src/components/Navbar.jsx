@@ -1,13 +1,14 @@
-import { auth } from '@/auth';
+import { SignedIn, SignedOut, SignOutButton } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import Link from 'next/link';
-import Links from './Links';
-import Logout from './Logout';
+import MenuLinks from './MenuLinks';
 
 export default async function Navbar() {
-  const session = await auth();
+  // const { isLoaded, isSignedIn, user } = useUser();
 
-  console.log('Navbar session', session);
+  const user = await currentUser();
+  // console.log(user);
 
   return (
     <div className='navbar'>
@@ -32,7 +33,7 @@ export default async function Navbar() {
           <ul
             tabIndex='-1'
             className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow'>
-            <Links />
+            <MenuLinks />
           </ul>
         </div>
         <Link href='/' className='text-xl'>
@@ -42,25 +43,25 @@ export default async function Navbar() {
       {/* Nav Center */}
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal px-1'>
-          <Links />
+          <MenuLinks />
         </ul>
       </div>
       {/* Nav End */}
       <div className='navbar-end'>
-        {!session && (
+        <SignedOut>
           <Link href='/login' className='btn btn-primary text-neutral'>
             Login
           </Link>
-        )}
-        {session && (
+        </SignedOut>
+        <SignedIn>
           <div className='dropdown dropdown-end'>
             <div tabIndex={0} role='image' className='cursor-pointer m-1'>
               <Image
                 src={
-                  session?.user?.image ??
+                  user?.imageUrl ??
                   'https://i.ibb.co.com/fzYGmQj8/avatar-placeholder.gif'
                 }
-                alt={session?.user?.name ?? ''}
+                alt={user?.firstName ?? ''}
                 width={40}
                 height={40}
                 className='rounded-full'
@@ -68,30 +69,40 @@ export default async function Navbar() {
             </div>
             <ul
               tabIndex='-1'
-              className='dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-1'>
+              className='dropdown-content bg-base-100 rounded-box z-100 w-52 p-2 shadow-sm space-y-1'>
               <li>
                 <h3 className='text-2xl text-center text-secondary'>
-                  {session?.user?.name}
+                  {user?.fullName}
                 </h3>
               </li>
-              <li>({session?.user?.email})</li>
+              <li>({user?.primaryEmailAddress.emailAddress})</li>
               <hr className='mb-3' />
               <li className='mb-2'>
-                <Link className='hover:text-accent' href='/add-product'>
+                <Link
+                  prefetch={false}
+                  className='hover:text-accent'
+                  href='/add-product'>
                   Add Product
                 </Link>
               </li>
               <li className='mb-2'>
-                <Link className='hover:text-accent' href='/my-product'>
+                <Link
+                  prefetch={false}
+                  className='hover:text-accent'
+                  href='/my-product'>
                   Manage Product
                 </Link>
               </li>
               <li>
-                <Logout />
+                <SignOutButton>
+                  <button className='btn btn-primary text-neutral w-full'>
+                    Logout
+                  </button>
+                </SignOutButton>
               </li>
             </ul>
           </div>
-        )}
+        </SignedIn>
       </div>
     </div>
   );
