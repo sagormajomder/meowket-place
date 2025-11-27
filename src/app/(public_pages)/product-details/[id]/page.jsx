@@ -1,5 +1,6 @@
 import Container from '@/components/Container';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function ProductDetailsPage({ params }) {
   const { id } = await params;
@@ -30,10 +31,16 @@ export default async function ProductDetailsPage({ params }) {
     <section className='py-14 h-full text-neutral'>
       <Container>
         <div className=' p-8'>
+          {/* Back to Home Button */}
+          <Link
+            href='/'
+            className=' px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors'>
+            Back to Home
+          </Link>
           {/* Main Content Grid */}
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8'>
             {/* Left Side - Product Image */}
-            <div className=' rounded-lg p-8 relative'>
+            <div className=' rounded-lg relative'>
               <Image
                 src={photoUrl}
                 alt={productName}
