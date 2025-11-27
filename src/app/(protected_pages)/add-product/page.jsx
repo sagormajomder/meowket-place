@@ -68,7 +68,7 @@ export default function AddProduct() {
 
     const resData = await response.json();
 
-    console.log(resData);
+    // console.log(resData);
 
     if (resData.id) {
       toast.success('Successfully product has been added');
