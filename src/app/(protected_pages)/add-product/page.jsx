@@ -1,5 +1,4 @@
 'use client';
-import { doCreateProduct } from '@/actions';
 import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import { useUser } from '@clerk/nextjs';
@@ -54,13 +53,29 @@ export default function AddProduct() {
       createdAt: new Date(),
     };
 
-    const response = await doCreateProduct(newProduct);
-    // console.log(response);
-    if (response.id) {
+    // Upload the new product into DB
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/add-product`,
+      {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newProduct),
+      }
+    );
+
+    const resData = await response.json();
+
+    console.log(resData);
+
+    if (resData.id) {
       toast.success('Successfully product has been added');
       router.push('/my-product');
     } else {
       toast.error('Some error occured! Please try again');
+      console.log(resData.error);
     }
   }
   return (

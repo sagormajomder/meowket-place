@@ -7,6 +7,7 @@ export async function doCreateProduct(data) {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/add-product`,
     {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -15,5 +16,4 @@ export async function doCreateProduct(data) {
   );
 
   const resData = await res.json();
-  return resData;
 }

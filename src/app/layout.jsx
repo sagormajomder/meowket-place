@@ -20,13 +20,13 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang='en'>
-        <body className='grid grid-rows-[auto_1fr_auto] min-h-dvh'>
-          <header className='shadow-sm py-1.5 sticky top-0'>
+        <body className='grid grid-rows-[auto_1fr_auto] min-h-screen'>
+          <header className='shadow-sm py-1.5 sticky top-0 z-100'>
             <Container>
               <Navbar />
             </Container>
           </header>
-          <main>{children}</main>
+          <main className='min-w-0'>{children}</main>
           <Footer />
         </body>
       </html>
