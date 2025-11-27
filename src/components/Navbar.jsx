@@ -70,7 +70,7 @@ export default async function Navbar() {
             </div>
             <ul
               tabIndex='-1'
-              className='dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-1'>
+              className='dropdown-content bg-base-100 rounded-box z-100 w-52 p-2 shadow-sm space-y-1'>
               <li>
                 <h3 className='text-2xl text-center text-secondary'>
                   {user?.fullName}

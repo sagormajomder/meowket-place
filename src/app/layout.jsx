@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { ClerkProvider } from '@clerk/nextjs';
 import { Inter } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 import './../globals.css';
 
 const inter = Inter({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </body>
       </html>
+      <Toaster />
     </ClerkProvider>
   );
 }
