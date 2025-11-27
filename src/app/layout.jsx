@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang='en'>
         <body className='grid grid-rows-[auto_1fr_auto] min-h-screen'>
-          <header className='shadow-sm py-1.5 sticky top-0 z-100'>
+          <header className='shadow-sm py-1.5 sticky top-0 z-100 bg-white'>
             <Container>
               <Navbar />
             </Container>

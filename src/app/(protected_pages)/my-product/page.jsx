@@ -2,6 +2,7 @@ import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import { headers } from 'next/headers';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function MyProduct() {
   const headersList = await headers();
@@ -54,7 +55,7 @@ export default async function MyProduct() {
 }
 
 function Row({ singleData, i }) {
-  const { productName, photoUrl, shortDesc, productPrice } = singleData;
+  const { _id, productName, photoUrl, shortDesc, productPrice } = singleData;
 
   return (
     <tr>
@@ -66,7 +67,11 @@ function Row({ singleData, i }) {
       <td>{shortDesc}</td>
       <td>{productPrice}</td>
       <td className='flex gap-2'>
-        <button className='btn btn-primary text-neutral'>View</button>
+        <Link
+          href={`/product-details/${_id}`}
+          className='btn btn-primary text-neutral'>
+          View
+        </Link>
         <button className='btn btn-primary text-neutral'>Delete</button>
       </td>
     </tr>
