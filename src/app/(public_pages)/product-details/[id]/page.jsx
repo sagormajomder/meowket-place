@@ -44,8 +44,9 @@ export default async function ProductDetailsPage({ params }) {
               <Image
                 src={photoUrl}
                 alt={productName}
-                width={0}
-                height={0}
+                width={600}
+                height={500}
+                quality={90}
                 className='w-full h-auto object-cover'
               />
             </div>
@@ -74,8 +75,9 @@ export default async function ProductDetailsPage({ params }) {
                   <Image
                     src={userPhoto}
                     alt={userName}
-                    width={0}
-                    height={0}
+                    width={200}
+                    height={200}
+                    quality={90}
                     className='w-16 h-16 rounded-full object-cover'
                   />
                   <div>
