@@ -68,7 +68,7 @@ function ProductCard({ product }) {
       </div>
 
       {/* Content */}
-      <div className='p-4 bg-gray-800 text-white flex flex-col justify-between h-[12.5rem]'>
+      <div className='p-4 bg-gray-800 text-white flex flex-col justify-between h-50'>
         <div>
           {/* Product Name */}
           <h3 className='font-semibold text-base mb-2 '>{productName}</h3>

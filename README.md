@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MeowketPlace 🐾
 
-## Getting Started
+MeowketPlace is a simple pet-focused e-commerce project built with modern web technologies.  
+It showcases a minimal marketplace where users can browse products, log in, and explore a clean UI.
 
-First, run the development server:
+## Setup & installation instructions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Follow these steps to run the project locally:
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/sagormajomder/meowket-place.git
+   cd meowket-place
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+   or if you prefer yarn:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+   The app will be available at `http://localhost:3000`.
+
+4. **Build for production**
+   ```bash
+   npm run build
+   npm start
+   ```
+
+## Route summary
+
+The project currently supports the following routes:
+
+| Route                        | Description                                        |
+| ---------------------------- | -------------------------------------------------- |
+| `/`                          | Home page                                          |
+| `/products`                  | Displays all available products                    |
+| `/about`                     | About Us section                                   |
+| `/contact`                   | Contact page                                       |
+| `/login`                     | User login page                                    |
+| `/product-details/prpductID` | Product Details Page                               |
+| `/add-product/`              | Page for add product                               |
+| `/my-product/`               | Page for manage product added by the loggedin user |
+
+## Live URL
+
+#### 🚀 Live Project URL: https://meowket-place.vercel.app/
+
+## Project Dependencies
+
+#### Dependencies List
+
+```
+   "dependencies": {
+    "@clerk/nextjs": "^6.35.5",
+    "daisyui": "^5.5.5",
+    "mongodb": "^7.0.0",
+    "next": "16.0.3",
+    "next-auth": "^5.0.0-beta.30",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-hook-form": "^7.66.1",
+    "react-hot-toast": "^2.6.0"
+  }
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Dev Dependencies List
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+ "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.3",
+    "tailwindcss": "^4"
+  }
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Connect with Me
 
-## Learn More
+✨ Let's connect on different platforms! Feel free to reach out.
 
-To learn more about Next.js, take a look at the following resources:
+🐦 **Twitter:** [@sagormajomder](https://twitter.com/sagormajomder)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🐙 **GitHub:** [@sagormajomder](https://github.com/sagormajomder)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📘 **Facebook:** [@sagormajomder](https://facebook.com/sagormajomder)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🔗 **LinkedIn:** [@sagormajomder](https://www.linkedin.com/in/sagormajomder/)
