@@ -54,7 +54,7 @@ export default async function Products() {
 function ProductCard({ product }) {
   const { _id, productName, photoUrl, shortDesc, productPrice } = product;
   return (
-    <div className='bg-white rounded-2xl overflow-hidden shadow-lg'>
+    <div className='bg-white rounded-xl overflow-hidden shadow-lg'>
       {/* Image Container */}
       <div className='relative '>
         <Image
@@ -77,7 +77,7 @@ function ProductCard({ product }) {
           <p className='text-gray-400 text-sm mb-3'>{shortDesc}</p>
 
           {/* Price */}
-          <div className='text-pink-500 font-bold text-xl mb-4'>
+          <div className='text-secondary font-bold text-xl mb-4'>
             ৳ {productPrice}
           </div>
         </div>

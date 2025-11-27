@@ -18,6 +18,20 @@ export default function MenuLinks() {
           Products
         </Link>
       </li>
+      <li>
+        <Link
+          href='/about'
+          className={` ${pathname === '/about' ? 'active' : ''}`}>
+          About Us
+        </Link>
+      </li>
+      <li>
+        <Link
+          href='/contact'
+          className={` ${pathname === '/contact' ? 'active' : ''}`}>
+          Contact Us
+        </Link>
+      </li>
     </>
   );
 }

@@ -34,30 +34,30 @@ export default async function ProductDetailsPage({ params }) {
           {/* Back to Home Button */}
           <Link
             href='/'
-            className=' px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors'>
+            className=' px-6 py-3  text-white rounded-lg btn btn-accent transition-colors'>
             Back to Home
           </Link>
           {/* Main Content Grid */}
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-8'>
             {/* Left Side - Product Image */}
-            <div className=' rounded-lg relative'>
+            <div className=' relative rounded-xl'>
               <Image
                 src={photoUrl}
                 alt={productName}
                 width={600}
                 height={500}
                 quality={90}
-                className='w-full h-auto object-cover'
+                className='w-full h-auto object-cover rounded-xl'
               />
             </div>
 
             {/* Right Side - Product Details */}
             <div className=' space-y-6'>
               {/* Product Name */}
-              <h1 className='text-4xl font-bold'>{productName}</h1>
+              <h1 className='md:text-3xl text-2xl font-bold'>{productName}</h1>
 
               {/* Price */}
-              <div className='text-3xl font-semibold text-primary'>
+              <div className='md:text-2xl text-xl  font-bold text-secondary'>
                 Price: ৳ {productPrice}
               </div>
 
@@ -81,8 +81,8 @@ export default async function ProductDetailsPage({ params }) {
                     className='w-16 h-16 rounded-full object-cover'
                   />
                   <div>
-                    <div className='font-semibold text-lg'>{userName}</div>
-                    <div className='text-gray-600'>{userEmail}</div>
+                    <div className='font-semibold '>{userName}</div>
+                    <div className='text-gray-600 text-sm'>{userEmail}</div>
                     <div className='text-gray-600 text-sm'>
                       Published on: {formatDate(createdAt)}
                     </div>
