@@ -6,14 +6,14 @@ import SectionTitle from '../SectionTitle';
 
 export default function WhyChooseUs() {
   return (
-    <section className='py-8'>
+    <section className='py-6'>
       <Container>
         <SectionTitle title='Why Choose Us' desc='Where love meets expertise' />
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
+        <div className='grid grid-cols-1 min-[30rem]:grid-cols-2 min-[50rem]:grid-cols-4 lg:gap-6 gap-6 min-[50rem]:gap-2'>
           {/* Box 1 */}
-          <div className='py-8 sm:px-6  px-8 bg-[#FFF3CD] rounded-lg flex flex-col items-center justify-center gap-2'>
-            <div className='w-25 h-25 bg-white rounded-full flex items-center justify-center'>
-              <GrDeliver className='text-5xl text-secondary' />
+          <div className='py-6 px-2  bg-[#FFF3CD] rounded-lg flex flex-col items-center justify-center gap-2'>
+            <div className='sm:w-25 sm:h-25 w-15 h-15 bg-white rounded-full flex items-center justify-center'>
+              <GrDeliver className='sm:text-5xl text-3xl text-secondary' />
             </div>
             <div className='text-center'>
               <h3 className='heading-tertiary '>Fast Delivery</h3>
@@ -21,9 +21,9 @@ export default function WhyChooseUs() {
             </div>
           </div>
           {/* Box 2 */}
-          <div className='py-8 px-6  bg-[#E2EFD1] rounded-lg flex flex-col items-center justify-center gap-2'>
-            <div className='w-25 h-25 bg-white rounded-full flex items-center justify-center'>
-              <RiDiscountPercentLine className='text-5xl text-secondary' />
+          <div className='py-6 px-2  bg-[#E2EFD1] rounded-lg flex flex-col items-center justify-center gap-2'>
+            <div className='sm:w-25 sm:h-25 w-15 h-15 bg-white rounded-full flex items-center justify-center'>
+              <RiDiscountPercentLine className='sm:text-5xl text-3xl text-secondary' />
             </div>
             <div className='text-center'>
               <h3 className='heading-tertiary '>Best Prices</h3>
@@ -31,15 +31,15 @@ export default function WhyChooseUs() {
             </div>
           </div>
           {/* Box 3 */}
-          <div className='py-8 px-6  bg-[#DBECFF] rounded-lg flex flex-col items-center justify-center gap-2'>
-            <div className='w-25 h-25 bg-white rounded-full flex items-center justify-center'>
+          <div className='py-6 px-2  bg-[#DBECFF] rounded-lg flex flex-col items-center justify-center gap-2'>
+            <div className='sm:w-25 sm:h-25 w-15 h-15 bg-white rounded-full flex items-center justify-center'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 24 24'
                 strokeWidth={1.5}
                 stroke='currentColor'
-                className='size-12.5 text-secondary'>
+                className='sm:size-12.5 size-8.75 text-secondary'>
                 <path
                   strokeLinecap='round'
                   strokeLinejoin='round'
@@ -53,9 +53,9 @@ export default function WhyChooseUs() {
             </div>
           </div>
           {/* Box 4 */}
-          <div className='py-8 px-6  bg-[#F9DCDA] rounded-lg flex flex-col items-center justify-center gap-2'>
-            <div className='w-25 h-25 bg-white rounded-full flex items-center justify-center'>
-              <IoMdCall className='text-5xl text-secondary' />
+          <div className='py-6 px-2  bg-[#F9DCDA] rounded-lg flex flex-col items-center justify-center gap-2'>
+            <div className='sm:w-25 sm:h-25 w-15 h-15 bg-white rounded-full flex items-center justify-center'>
+              <IoMdCall className='sm:text-5xl text-3xl text-secondary' />
             </div>
             <div className='text-center'>
               <h3 className='heading-tertiary '>24/7 Support</h3>
