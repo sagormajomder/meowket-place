@@ -3,6 +3,7 @@ import { currentUser } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import Link from 'next/link';
 import MenuLinks from './MenuLinks';
+import UserSignIn from './UserSignIn';
 
 export default async function Navbar() {
   // const { isLoaded, isSignedIn, user } = useUser();
@@ -36,8 +37,9 @@ export default async function Navbar() {
             <MenuLinks />
           </ul>
         </div>
-        <Link href='/' className='text-xl font-semibold'>
-          🐾 Meowket<span className='text-primary-dark'>Place</span>
+        <Link href='/' className='text-xl font-semibold flex'>
+          Meowket
+          <span className='text-primary-dark'>Place</span>
         </Link>
       </div>
       {/* Nav Center */}
@@ -54,7 +56,7 @@ export default async function Navbar() {
           </Link>
         </SignedOut>
         <SignedIn>
-          <div className='dropdown dropdown-end'>
+          {/* <div className='dropdown dropdown-end'>
             <div tabIndex={0} role='image' className='cursor-pointer m-1'>
               <Image
                 src={
@@ -80,7 +82,7 @@ export default async function Navbar() {
               <li className='mb-2'>
                 <Link
                   prefetch={false}
-                  className='hover:text-primary'
+                  className='hover:text-primary-dark'
                   href='/add-product'>
                   Add Product
                 </Link>
@@ -88,7 +90,7 @@ export default async function Navbar() {
               <li className='mb-2'>
                 <Link
                   prefetch={false}
-                  className='hover:text-primary'
+                  className='hover:text-primary-dark'
                   href='/my-product'>
                   Manage Product
                 </Link>
@@ -101,7 +103,8 @@ export default async function Navbar() {
                 </SignOutButton>
               </li>
             </ul>
-          </div>
+          </div> */}
+          <UserSignIn />
         </SignedIn>
       </div>
     </div>

@@ -3,9 +3,11 @@
 import { SignOutButton, useUser } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function UserSignIn() {
   const { isLoaded, isSignedIn, user } = useUser();
+  const pathname = usePathname();
   return (
     <div className='dropdown dropdown-end'>
       <div tabIndex={0} role='image' className='cursor-pointer m-1'>
@@ -33,7 +35,9 @@ export default function UserSignIn() {
         <li className='mb-2'>
           <Link
             prefetch={false}
-            className='hover:text-primary'
+            className={` hover:text-primary-dark ${
+              pathname === '/add-product' ? 'active' : ''
+            }`}
             href='/add-product'>
             Add Product
           </Link>
@@ -41,7 +45,9 @@ export default function UserSignIn() {
         <li className='mb-2'>
           <Link
             prefetch={false}
-            className='hover:text-primary'
+            className={`hover:text-primary-dark ${
+              pathname === '/my-product' ? 'active' : ''
+            }`}
             href='/my-product'>
             Manage Product
           </Link>
