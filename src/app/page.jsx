@@ -1,4 +1,5 @@
 import HeroBanner from '@/components/Homepage/HeroBanner';
+import LatestProducts from '@/components/Homepage/LatestProducts';
 import WhyChooseUs from '@/components/Homepage/WhyChooseUs';
 
 export default function HomePage() {
@@ -6,6 +7,7 @@ export default function HomePage() {
     <div className='space-y-10'>
       <HeroBanner />
       <WhyChooseUs />
+      <LatestProducts />
     </div>
   );
 }
