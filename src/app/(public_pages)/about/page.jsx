@@ -5,7 +5,7 @@ import { LuBox } from 'react-icons/lu';
 import { MdOutlineStars } from 'react-icons/md';
 import { RiUserStarLine } from 'react-icons/ri';
 
-export default function page() {
+export default function AboutPage() {
   return (
     <section className='py-14 h-full'>
       <Container>
@@ -17,7 +17,7 @@ export default function page() {
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 my-20'>
           {/* Box 1 */}
           <div className='shadow-xl rounded-xl py-8 px-5'>
-            <GoGoal className='text-6xl text-primary mb-3' />
+            <GoGoal className='text-5xl text-primary mb-3' />
             <div>
               <h3 className='heading-tertiary'>Our Mission</h3>
               <p>
@@ -29,7 +29,7 @@ export default function page() {
           </div>
           {/* Box 2 */}
           <div className='shadow-xl rounded-xl py-8 px-5'>
-            <MdOutlineStars className='text-6xl text-primary mb-3' />
+            <MdOutlineStars className='text-5xl text-primary mb-3' />
             <div>
               <h3 className='heading-tertiary'>Our Vision</h3>
               <p>
@@ -53,7 +53,7 @@ export default function page() {
         <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
           {/* Box 1 */}
           <div className='shadow-xl rounded-xl py-8 px-5 text-center'>
-            <GoPeople className='text-6xl text-primary mx-auto mb-3' />
+            <GoPeople className='text-5xl text-primary mx-auto mb-3' />
             <div>
               <h3 className='heading-tertiary'>Dedicated Members</h3>
               <p>We work together to bring you the best experience.</p>
@@ -61,7 +61,7 @@ export default function page() {
           </div>
           {/* Box 2 */}
           <div className='shadow-xl rounded-xl py-8 px-5 text-center'>
-            <LuBox className='text-6xl text-primary mx-auto mb-3' />
+            <LuBox className='text-5xl text-primary mx-auto mb-3' />
             <div>
               <h3 className='heading-tertiary'>Quality Assurance</h3>
               <p>Every product is carefully checked before delivery.</p>
@@ -69,7 +69,7 @@ export default function page() {
           </div>
           {/* Box 3 */}
           <div className='shadow-xl rounded-xl py-8 px-5 text-center'>
-            <RiUserStarLine className='text-6xl text-primary mx-auto mb-3' />
+            <RiUserStarLine className='text-5xl text-primary mx-auto mb-3' />
             <div>
               <h3 className='heading-tertiary'>Customer First</h3>
               <p>Your happiness is our top priority at all times.</p>
