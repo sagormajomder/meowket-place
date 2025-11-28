@@ -36,8 +36,8 @@ export default async function Navbar() {
             <MenuLinks />
           </ul>
         </div>
-        <Link href='/' className='text-xl'>
-          MeowketPlace
+        <Link href='/' className='text-xl font-semibold'>
+          🐾 Meowket<span className='text-primary-dark'>Place</span>
         </Link>
       </div>
       {/* Nav Center */}

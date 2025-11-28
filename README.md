@@ -1,7 +1,15 @@
-# MeowketPlace 🐾
+# MeowketPlace - Your one‑stop shop for happy pets
 
 MeowketPlace is a simple pet-focused e-commerce project built with modern web technologies.  
 It showcases a minimal marketplace where users can browse products, log in, and explore a clean UI.
+
+## Technology Used
+
+- **Frontend**: JavaScript, NextJs
+- **Backend**: NextJs
+- **Authentication**: Clerk
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel
 
 ## Setup & installation instructions
 
@@ -64,7 +72,7 @@ The project currently supports the following routes:
 #### Dependencies List
 
 ```
-   "dependencies": {
+    "dependencies": {
     "@clerk/nextjs": "^6.35.5",
     "daisyui": "^5.5.5",
     "mongodb": "^7.0.0",
@@ -73,7 +81,8 @@ The project currently supports the following routes:
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hook-form": "^7.66.1",
-    "react-hot-toast": "^2.6.0"
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0"
   }
 ```
 
