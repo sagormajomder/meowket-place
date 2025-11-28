@@ -40,7 +40,6 @@ export default function CustomerFeedback() {
                   alt='customer'
                   width={60}
                   height={60}
-                  quality={90}
                 />
               </figure>
               <p className='mb-5'>
@@ -59,7 +58,6 @@ export default function CustomerFeedback() {
                   alt='Illustration'
                   width={20}
                   height={20}
-                  quality={90}
                 />
               </figure>
             </div>
@@ -73,7 +71,6 @@ export default function CustomerFeedback() {
                     alt='customer'
                     width={60}
                     height={60}
-                    quality={90}
                   />
                 </figure>
                 <p className='mb-5'>
@@ -97,7 +94,6 @@ export default function CustomerFeedback() {
                     alt='customer'
                     width={60}
                     height={60}
-                    quality={90}
                   />
                 </figure>
                 <p className='mb-5'>

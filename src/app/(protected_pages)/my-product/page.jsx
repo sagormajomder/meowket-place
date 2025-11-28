@@ -1,4 +1,5 @@
 import Container from '@/components/Container';
+import DeleteProduct from '@/components/DeleteProduct';
 import SectionTitle from '@/components/SectionTitle';
 import { headers } from 'next/headers';
 import Image from 'next/image';
@@ -27,28 +28,34 @@ export default async function MyProduct() {
           desc='Your dashboard for pet food & product care'
         />
         {/* Table */}
-        <div className='overflow-x-auto rounded-box border border-base-content/5 bg-base-100'>
-          <table className='table'>
-            {/* head */}
-            <thead>
-              <tr>
-                <th>SL</th>
-                <th>Product Name</th>
-                <th>Product Image</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((d, i) => (
-                <Row key={d._id} singleData={d} i={i + 1} />
-              ))}
+        {data.length === 0 ? (
+          <h2 className='heading-secondary my-5 text-center'>
+            You haven&apos;t added any Product 🥲
+          </h2>
+        ) : (
+          <div className='overflow-x-auto rounded-box border border-base-content/5 bg-base-100'>
+            <table className='table'>
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>SL</th>
+                  <th>Product Name</th>
+                  <th>Product Image</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((d, i) => (
+                  <Row key={d._id} singleData={d} i={i + 1} />
+                ))}
 
-              {/* row 2 */}
-            </tbody>
-          </table>
-        </div>
+                {/* row 2 */}
+              </tbody>
+            </table>
+          </div>
+        )}
       </Container>
     </section>
   );
@@ -72,7 +79,7 @@ function Row({ singleData, i }) {
           className='btn btn-primary text-neutral'>
           View
         </Link>
-        <button className='btn btn-primary text-neutral'>Delete</button>
+        <DeleteProduct productId={_id} />
       </td>
     </tr>
   );

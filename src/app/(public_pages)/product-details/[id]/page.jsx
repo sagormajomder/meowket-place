@@ -46,7 +46,6 @@ export default async function ProductDetailsPage({ params }) {
                 alt={productName}
                 width={600}
                 height={500}
-                quality={90}
                 className='w-full h-auto object-cover rounded-xl'
               />
             </div>
@@ -77,7 +76,6 @@ export default async function ProductDetailsPage({ params }) {
                     alt={userName}
                     width={200}
                     height={200}
-                    quality={90}
                     className='w-16 h-16 rounded-full object-cover'
                   />
                   <div>

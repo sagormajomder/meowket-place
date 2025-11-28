@@ -12,7 +12,6 @@ export default function ProductCard({ product }) {
           alt={productName}
           width={400}
           height={300}
-          quality={90}
           className='w-full h-48 object-cover group-hover:scale-120 transition duration-300'
         />
       </div>

@@ -80,7 +80,7 @@ export default async function Navbar() {
               <li className='mb-2'>
                 <Link
                   prefetch={false}
-                  className='hover:text-accent'
+                  className='hover:text-primary'
                   href='/add-product'>
                   Add Product
                 </Link>
@@ -88,7 +88,7 @@ export default async function Navbar() {
               <li className='mb-2'>
                 <Link
                   prefetch={false}
-                  className='hover:text-accent'
+                  className='hover:text-primary'
                   href='/my-product'>
                   Manage Product
                 </Link>
