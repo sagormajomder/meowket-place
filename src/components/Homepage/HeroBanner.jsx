@@ -3,7 +3,7 @@ import Container from '../Container';
 
 export default function HeroBanner() {
   return (
-    <section className='py-8'>
+    <section className='py-6'>
       <Container>
         <div className='bg-[url(/cat-eat-banner-3.png)] h-112.5 bg-cover bg-position-[90%_20%] py-14   bg-no-repeat relative rounded-xl'>
           <div className='inset-0 absolute bg-black/60 lg:bg-transparent text-white lg:text-neutral  flex  items-center   rounded-xl'>

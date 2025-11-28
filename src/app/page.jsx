@@ -1,3 +1,4 @@
+import Deals from '@/components/Homepage/Deals';
 import HeroBanner from '@/components/Homepage/HeroBanner';
 import LatestProducts from '@/components/Homepage/LatestProducts';
 import WhyChooseUs from '@/components/Homepage/WhyChooseUs';
@@ -8,6 +9,7 @@ export default function HomePage() {
       <HeroBanner />
       <WhyChooseUs />
       <LatestProducts />
+      <Deals />
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default async function LatestProducts() {
   );
   const latestProducts = await res.json();
 
-  console.log(latestProducts);
+  // console.log(latestProducts);
   return (
     <section className='py-6'>
       <Container>
