@@ -7,6 +7,9 @@
   --default-font-family: var(--font-inter), var(--font-sans);
 
   --color-primary-dark: #e67700;
+
+  --color-grad-1: #fcc419;
+  --color-grad-2: #f76707;
 }
 
 @plugin "daisyui";

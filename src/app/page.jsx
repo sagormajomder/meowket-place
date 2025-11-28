@@ -1,3 +1,4 @@
+import CustomerFeedback from '@/components/Homepage/CustomerFeedback';
 import Deals from '@/components/Homepage/Deals';
 import HeroBanner from '@/components/Homepage/HeroBanner';
 import LatestProducts from '@/components/Homepage/LatestProducts';
@@ -10,6 +11,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <LatestProducts />
       <Deals />
+      <CustomerFeedback />
     </div>
   );
 }

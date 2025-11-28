@@ -5,6 +5,7 @@ export default function Deals() {
     <section className='py-6'>
       <Container>
         <div className='grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-6 min-h-75'>
+          {/* Deal 1 */}
           <div className='bg-[url(/banner_1.jpg)] bg-no-repeat rounded-xl bg-cover bg-center flex items-center py-8 md:py-5'>
             <div className='md:max-w-[60%] p-5 '>
               <h3 className='heading-tertiary mb-4'>
@@ -16,6 +17,7 @@ export default function Deals() {
               </div>
             </div>
           </div>
+          {/* Deal 2 */}
           <div className='bg-[url(/banner_2.jpg)] bg-no-repeat rounded-xl bg-cover bg-center flex items-center py-8 md:py-5'>
             <div className='md:max-w-[55%] p-5'>
               <h3 className='heading-tertiary mb-4'>

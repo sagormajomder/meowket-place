@@ -62,9 +62,7 @@ export default function ContactPage() {
         </div>
         {/* Contact Form */}
         <SectionTitle title='Send Us a Message' />
-        <form
-          className='max-w-4xl mx-auto'
-          onSubmit={handleSubmit(handleContact)}>
+        <form onSubmit={handleSubmit(handleContact)}>
           <fieldset className='fieldset'>
             <div className='flex sm:flex-row sm:items-center sm:justify-between sm:gap-5 w-full flex-col gap-2'>
               <div className='basis-1/2 flex flex-col gap-1'>
