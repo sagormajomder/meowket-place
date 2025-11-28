@@ -1,7 +1,6 @@
 # MeowketPlace - Your one‑stop shop for happy pets
 
-MeowketPlace is a simple pet-focused e-commerce project built with modern web technologies.  
-It showcases a minimal marketplace where users can browse products, log in, and explore a clean UI.
+MeowketPlace is a pet‑focused marketplace built to simplify shopping for pet essentials. We provide a clean, user‑friendly platform where owners discover trusted products, explore new arrivals, and enjoy a joyful, reliable experience for their beloved companions
 
 ## Technology Used
 
@@ -77,7 +76,6 @@ The project currently supports the following routes:
     "daisyui": "^5.5.5",
     "mongodb": "^7.0.0",
     "next": "16.0.3",
-    "next-auth": "^5.0.0-beta.30",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hook-form": "^7.66.1",
