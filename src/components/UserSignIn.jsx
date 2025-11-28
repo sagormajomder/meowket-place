@@ -27,10 +27,12 @@ export default function UserSignIn() {
         className='dropdown-content bg-base-100 rounded-box z-100 w-52 p-2 shadow-sm space-y-1'>
         <li>
           <h3 className='text-2xl text-center text-secondary'>
-            {user?.fullName}
+            {user?.firstName}
           </h3>
         </li>
-        <li>({user?.primaryEmailAddress.emailAddress})</li>
+        <li className='text-xs text-center'>
+          ({user?.primaryEmailAddress.emailAddress})
+        </li>
         <hr className='mb-3' />
         <li className='mb-2'>
           <Link
