@@ -33,6 +33,22 @@ Follow these steps to run the project locally:
    yarn install
    ```
 
+3. **Set up environment variables**
+
+Create a .env file in the root directory and add the following environment variables:
+
+```
+   // Example .env file
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<get from clerk>
+   CLERK_SECRET_KEY=<get from clerk>
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/login
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL=/register
+   MONGODB_URI=<get from mongodb>
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
+   NEXT_PUBLIC_IMGBB_API_KEY=<get from imgbb>
+
+```
+
 3. **Run the development server**
 
    ```bash
