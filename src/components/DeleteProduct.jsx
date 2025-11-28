@@ -16,9 +16,9 @@ export default function DeleteProduct({ productId }) {
     const isDelete = await res.json();
 
     if (isDelete.acknowledged) {
-      toast.success('Product is successfully deleted!');
       router.refresh();
       router.push('/my-product');
+      toast.success('Product is successfully deleted!');
     } else {
       toast.error('Some error occured!');
     }
