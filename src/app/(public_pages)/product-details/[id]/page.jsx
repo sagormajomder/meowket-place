@@ -1,3 +1,7 @@
+import {
+  default as BuyNow,
+  default as BuyNowButton,
+} from '@/components/BuyNow';
 import Container from '@/components/Container';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,8 +12,8 @@ export default async function ProductDetailsPage({ params }) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/product-details/${id}`
   );
-
   const data = await res.json();
+
   const {
     productName,
     shortDesc,
@@ -89,9 +93,11 @@ export default async function ProductDetailsPage({ params }) {
               </div>
 
               {/* Buy Now Button */}
-              <button className='w-full btn btn-primary text-neutral font-semibold text-lg rounded-lg shadow-lg mb-5'>
-                Buy Now
-              </button>
+              <BuyNow
+                price={productPrice}
+                productName={productName}
+                buyerEmail={userEmail}
+              />
             </div>
           </div>
           <div className='divider'></div>

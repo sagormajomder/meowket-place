@@ -5,10 +5,13 @@ if (!process.env.MONGODB_URI) {
   throw new Error('Please add your MongoDB URI to .env');
 }
 const client = new MongoClient(uri, {});
-const clientPromise = client.connect();
+const dbClient = await client.connect();
+const db = dbClient.db('meowketPlaceDB');
 
 export async function getProductCollection() {
-  const client = await clientPromise;
-  const db = client.db('meowketPlaceDB');
   return db.collection('products');
+}
+
+export async function getPaymentCollection() {
+  return db.collection('payments');
 }
