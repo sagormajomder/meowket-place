@@ -37,6 +37,16 @@ export default function UserSignIn() {
         <li className='mb-2'>
           <Link
             prefetch={false}
+            className={`hover:text-primary-dark ${
+              pathname === '/my-product' ? 'active' : ''
+            }`}
+            href='/dashboard/payment-history'>
+            Dashboard
+          </Link>
+        </li>
+        <li className='mb-2'>
+          <Link
+            prefetch={false}
             className={` hover:text-primary-dark ${
               pathname === '/add-product' ? 'active' : ''
             }`}
@@ -54,6 +64,7 @@ export default function UserSignIn() {
             Manage Product
           </Link>
         </li>
+
         <li>
           <SignOutButton>
             <button className='btn btn-primary text-neutral w-full'>

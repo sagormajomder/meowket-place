@@ -44,6 +44,11 @@ export async function POST(req) {
       ],
       mode: 'payment',
       customer_email: paymentInfo.buyerEmail,
+      metadata: {
+        quantity: paymentInfo.quantity,
+        productName: paymentInfo.productName,
+        trackingId: paymentInfo.trackingId,
+      },
       success_url: `${origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/payment-cancelled`,
     });

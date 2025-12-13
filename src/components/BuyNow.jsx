@@ -1,11 +1,14 @@
 'use client';
 
+import { useUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-export default function BuyNow({ productName, price, buyerEmail }) {
+export default function BuyNow({ productName, price }) {
   const [quantity, setQuantity] = useState(1);
+  const { isLoaded, isSignedIn, user } = useUser();
+
   async function handlePayment() {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout_sessions`,
@@ -18,7 +21,7 @@ export default function BuyNow({ productName, price, buyerEmail }) {
           quantity,
           price,
           productName,
-          buyerEmail,
+          buyerEmail: user?.primaryEmailAddress?.emailAddress,
         }),
       }
     );

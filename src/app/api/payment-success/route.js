@@ -14,6 +14,7 @@ export async function POST(req) {
     const { session_id } = await req.json();
 
     const session = await stripe.checkout.sessions.retrieve(session_id);
+    // console.log(session);
 
     const transactionId = session.payment_intent;
 
@@ -40,6 +41,8 @@ export async function POST(req) {
         currency: session.currency,
         customer_email: session.customer_email,
         transactionId,
+        productName: session.metadata.productName,
+        quantity: session.metadata.quantity,
         paymentStatus: session.payment_status,
         paidAt: new Date(),
       };

@@ -93,11 +93,7 @@ export default async function ProductDetailsPage({ params }) {
               </div>
 
               {/* Buy Now Button */}
-              <BuyNow
-                price={productPrice}
-                productName={productName}
-                buyerEmail={userEmail}
-              />
+              <BuyNow price={productPrice} productName={productName} />
             </div>
           </div>
           <div className='divider'></div>
