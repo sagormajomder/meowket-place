@@ -55,7 +55,9 @@ export default function Products() {
             value={sortOption}
             onChange={e => setSortOption(e.target.value)}
             className='select'>
-            <option value=''>Sort products</option>
+            <option disabled={true} value=''>
+              Sort products
+            </option>
             <option value='high'>Sort by High Price</option>
             <option value='low'>Sort by Low Price</option>
           </select>
