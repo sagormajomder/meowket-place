@@ -14,7 +14,7 @@ export default async function page() {
     }
   );
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   return (
     <section>
       <h1 className='text-4xl mb-4 font-bold'>Payment History</h1>
