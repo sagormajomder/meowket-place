@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import AddToWishlist from './AddToWishlist';
 
-export default function ProductCard({ product }) {
+export default function ProductCard({
+  product,
+  isWishlisted,
+  enableRefresh = false,
+}) {
   const { _id, productName, photoUrl, shortDesc, productPrice } = product;
   return (
-    <div className='bg-white rounded-xl overflow-hidden shadow-lg group'>
+    <div className='bg-white rounded-xl overflow-hidden shadow-lg group relative'>
       {/* Image Container */}
       <div className='relative overflow-hidden'>
         <Image
@@ -15,6 +20,13 @@ export default function ProductCard({ product }) {
           quality={[75, 90]}
           className='w-full h-48 object-cover group-hover:scale-120 transition duration-300'
         />
+        <div className='absolute top-2 right-2 z-10'>
+          <AddToWishlist
+            productId={_id}
+            initialIsWishlisted={isWishlisted}
+            enableRefresh={enableRefresh}
+          />
+        </div>
       </div>
 
       {/* Content */}

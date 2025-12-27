@@ -1,3 +1,5 @@
+import { getWishlistCollection } from '@/lib/mongodb';
+import { auth } from '@clerk/nextjs/server';
 import Container from '../Container';
 import ProductCard from '../ProductCard';
 import SectionTitle from '../SectionTitle';
@@ -7,6 +9,17 @@ export default async function LatestProducts() {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/latest-products`
   );
   const latestProducts = await res.json();
+
+  const { userId } = await auth();
+  let wishlistProductIds = [];
+
+  if (userId) {
+    const wishlistCollection = await getWishlistCollection();
+    const wishlist = await wishlistCollection.findOne({ userId });
+    if (wishlist?.products) {
+      wishlistProductIds = wishlist.products;
+    }
+  }
 
   // console.log(latestProducts);
   return (
@@ -18,7 +31,11 @@ export default async function LatestProducts() {
         />
         <div className='grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-3'>
           {latestProducts.map(product => (
-            <ProductCard key={product._id} product={product} />
+            <ProductCard
+              key={product._id}
+              product={product}
+              isWishlisted={wishlistProductIds.includes(product._id)}
+            />
           ))}
         </div>
       </Container>

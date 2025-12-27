@@ -1,8 +1,8 @@
-import {
-  default as BuyNow,
-  default as BuyNowButton,
-} from '@/components/BuyNow';
+import AddToWishlist from '@/components/AddToWishlist';
+import { default as BuyNow } from '@/components/BuyNow';
 import Container from '@/components/Container';
+import { getWishlistCollection } from '@/lib/mongodb';
+import { auth } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,6 +13,20 @@ export default async function ProductDetailsPage({ params }) {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/product-details/${id}`
   );
   const data = await res.json();
+
+  // Check wishlist status
+  const { userId } = await auth();
+  let isWishlisted = false;
+
+  if (userId) {
+    const wishlistCollection = await getWishlistCollection();
+    const wishlist = await wishlistCollection.findOne({ userId });
+
+    // Check if current product ID is in wishlist array
+    if (wishlist?.products?.includes(id)) {
+      isWishlisted = true;
+    }
+  }
 
   const {
     productName,
@@ -52,6 +66,12 @@ export default async function ProductDetailsPage({ params }) {
                 height={500}
                 className='w-full h-auto object-cover rounded-xl'
               />
+              <div className='absolute top-4 right-4 z-10'>
+                <AddToWishlist
+                  productId={id}
+                  initialIsWishlisted={isWishlisted}
+                />
+              </div>
             </div>
 
             {/* Right Side - Product Details */}

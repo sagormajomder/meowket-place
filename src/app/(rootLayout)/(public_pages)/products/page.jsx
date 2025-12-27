@@ -9,17 +9,27 @@ export default function Products() {
   const [products, setProducts] = useState([]);
   const [sortOption, setSortOption] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [wishlistIds, setWishlistIds] = useState([]);
 
   useEffect(() => {
-    async function fetchProducts() {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/products`
-      );
-      const data = await res.json();
-      setProducts(data);
-      // setFilteredProducts(data);
+    async function fetchData() {
+      const [productsRes, wishlistRes] = await Promise.all([
+        fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`),
+        fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/wishlist`),
+      ]);
+
+      const productsData = await productsRes.json();
+      setProducts(productsData);
+
+      if (wishlistRes.ok) {
+        const wishlistData = await wishlistRes.json();
+        // Check if array to avoid errors if not logged in returns error obj
+        if (Array.isArray(wishlistData)) {
+          setWishlistIds(wishlistData.map(p => p._id));
+        }
+      }
     }
-    fetchProducts();
+    fetchData();
   }, []);
 
   const filteredProducts = useMemo(() => {
@@ -87,7 +97,11 @@ export default function Products() {
         {/* Product Cards */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
           {filteredProducts.map(product => (
-            <ProductCard key={product._id} product={product} />
+            <ProductCard
+              key={product._id}
+              product={product}
+              isWishlisted={wishlistIds.includes(product._id)}
+            />
           ))}
         </div>
       </Container>
