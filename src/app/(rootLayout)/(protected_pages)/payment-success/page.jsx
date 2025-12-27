@@ -34,9 +34,9 @@ export default async function PaymentSuccessPage({ searchParams }) {
               <h2 className='text-4xl'>Payment Successful</h2>
               <p>Your TransactionID: {transactionId}</p>
               <Link
-                href='/dashboard/payment-history'
+                href='/dashboard/my-orders'
                 className='btn btn-primary text-neutral'>
-                View Payment Details
+                View Order Details
               </Link>
             </>
           )}

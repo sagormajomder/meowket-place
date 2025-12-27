@@ -38,10 +38,10 @@ export default function UserSignIn() {
           <Link
             prefetch={false}
             className={`hover:text-primary-dark ${
-              pathname === '/dashboard/payment-history' ? 'active' : ''
+              pathname === '/dashboard/my-orders' ? 'active' : ''
             }`}
-            href='/dashboard/payment-history'>
-            Dashboard
+            href='/dashboard/my-orders'>
+            My Orders
           </Link>
         </li>
         <li className='mb-2'>

@@ -1,4 +1,4 @@
-import { getPaymentCollection } from '@/lib/mongodb';
+import { getOrderCollection } from '@/lib/mongodb';
 import { stripe } from '@/lib/stripe';
 import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
@@ -18,10 +18,10 @@ export async function POST(req) {
 
     const transactionId = session.payment_intent;
 
-    const paymentCollection = await getPaymentCollection();
+    const orderCollection = await getOrderCollection();
 
     // Close guard if payment exist
-    const isPaymentExist = await paymentCollection.findOne({
+    const isPaymentExist = await orderCollection.findOne({
       transactionId,
     });
 
@@ -47,7 +47,7 @@ export async function POST(req) {
         paidAt: new Date(),
       };
 
-      const result = await paymentCollection.insertOne(paymentData);
+      const result = await orderCollection.insertOne(paymentData);
 
       return NextResponse.json({
         success: true,

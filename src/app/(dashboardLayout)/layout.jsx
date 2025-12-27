@@ -78,13 +78,11 @@ export default function RootLayout({ children }) {
               {/* List item */}
               <li>
                 <Link
-                  href='/dashboard/payment-history'
+                  href='/dashboard/my-orders'
                   className='is-drawer-close:tooltip is-drawer-close:tooltip-right'
-                  data-tip='Payment History'>
+                  data-tip='My Orders'>
                   <LuHistory className='text-xl' />
-                  <span className='is-drawer-close:hidden'>
-                    Payment History
-                  </span>
+                  <span className='is-drawer-close:hidden'>My Orders</span>
                 </Link>
               </li>
             </ul>

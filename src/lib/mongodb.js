@@ -12,8 +12,8 @@ export async function getProductCollection() {
   return db.collection('products');
 }
 
-export async function getPaymentCollection() {
-  return db.collection('payments');
+export async function getOrderCollection() {
+  return db.collection('orders');
 }
 
 export async function getWishlistCollection() {

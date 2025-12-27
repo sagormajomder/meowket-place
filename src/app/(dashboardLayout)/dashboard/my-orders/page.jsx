@@ -5,7 +5,7 @@ export default async function page() {
   const user = await currentUser();
   const headersList = await headers();
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/payment-history?email=${user?.primaryEmailAddress.emailAddress}`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/my-orders?email=${user?.primaryEmailAddress.emailAddress}`,
     {
       headers: {
         'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ export default async function page() {
   // console.log(data);
   return (
     <section>
-      <h1 className='text-4xl mb-4 font-bold'>Payment History</h1>
+      <h1 className='text-4xl mb-4 font-bold'>My Orders</h1>
 
       <div className='overflow-x-auto rounded-box border border-base-content/5 bg-base-100'>
         <table className='table'>
