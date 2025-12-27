@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { LuHistory } from 'react-icons/lu';
+import { IoMdAddCircleOutline } from 'react-icons/io';
+import { IoListCircleOutline } from 'react-icons/io5';
+import { LuClipboardList, LuHistory } from 'react-icons/lu';
 
 export const metadata = {
   title: 'MeowketPlace',
@@ -83,6 +85,39 @@ export default function RootLayout({ children }) {
                   data-tip='My Orders'>
                   <LuHistory className='text-xl' />
                   <span className='is-drawer-close:hidden'>My Orders</span>
+                </Link>
+              </li>
+
+              {/* Add Product */}
+              <li>
+                <Link
+                  href='/dashboard/add-product'
+                  className='is-drawer-close:tooltip is-drawer-close:tooltip-right'
+                  data-tip='Add Product'>
+                  <IoMdAddCircleOutline className='text-xl' />
+                  <span className='is-drawer-close:hidden'>Add Product</span>
+                </Link>
+              </li>
+
+              {/* Added Products */}
+              <li>
+                <Link
+                  href='/dashboard/my-product'
+                  className='is-drawer-close:tooltip is-drawer-close:tooltip-right'
+                  data-tip='Added Products'>
+                  <IoListCircleOutline className='text-xl' />
+                  <span className='is-drawer-close:hidden'>Added Products</span>
+                </Link>
+              </li>
+
+              {/* Wishlist */}
+              <li>
+                <Link
+                  href='/dashboard/wishlist'
+                  className='is-drawer-close:tooltip is-drawer-close:tooltip-right'
+                  data-tip='Wishlist'>
+                  <LuClipboardList className='text-xl' />
+                  <span className='is-drawer-close:hidden'>Wishlist</span>
                 </Link>
               </li>
             </ul>

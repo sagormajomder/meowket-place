@@ -75,8 +75,9 @@ The project currently supports the following routes:
 | `/contact`                   | Contact page                                       |
 | `/login`                     | User login page                                    |
 | `/product-details/prpductID` | Product Details Page                               |
-| `/add-product/`              | Page for add product                               |
-| `/my-product/`               | Page for manage product added by the loggedin user |
+| `/dashboard/add-product/`    | Page for add product                               |
+| `/dashboard/my-product/`     | Page for manage product added by the loggedin user |
+| `/dashboard/wishlist/`       | User's wishlist                                    |
 
 ## Live URL
 

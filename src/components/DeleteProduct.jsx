@@ -17,10 +17,10 @@ export default function DeleteProduct({ productId }) {
 
     if (isDelete.acknowledged) {
       router.refresh();
-      router.push('/my-product');
+      router.push('/dashboard/my-product');
       toast.success('Product is successfully deleted!');
     } else {
-      toast.error('Some error occured!');
+      toast.error('Some error occurred!');
     }
   }
   return (

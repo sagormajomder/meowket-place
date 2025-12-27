@@ -41,7 +41,6 @@ export default async function WishlistPage() {
         .find({ _id: { $in: productIds } })
         .toArray();
 
-      // Serialize ObjectIds to strings
       products = rawProducts.map(p => ({
         ...p,
         _id: p._id.toString(),

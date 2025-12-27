@@ -18,16 +18,14 @@ export default async function MyProduct() {
   );
 
   const data = await res.json();
-  // console.log('product data', data);
 
   return (
     <section className='h-full py-14'>
       <Container>
         <SectionTitle
-          title='Manage Products'
+          title='My Added Products'
           desc='Your dashboard for pet food & product care'
         />
-        {/* Table */}
         {data.length === 0 ? (
           <h2 className='heading-secondary my-5 text-center'>
             You haven&apos;t added any Product 🥲
@@ -35,7 +33,6 @@ export default async function MyProduct() {
         ) : (
           <div className='overflow-x-auto rounded-box border border-base-content/5 bg-base-100'>
             <table className='table'>
-              {/* head */}
               <thead>
                 <tr>
                   <th>SL</th>
@@ -50,8 +47,6 @@ export default async function MyProduct() {
                 {data.map((d, i) => (
                   <Row key={d._id} singleData={d} i={i + 1} />
                 ))}
-
-                {/* row 2 */}
               </tbody>
             </table>
           </div>

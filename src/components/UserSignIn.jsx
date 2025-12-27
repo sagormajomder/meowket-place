@@ -41,40 +41,9 @@ export default function UserSignIn() {
               pathname === '/dashboard/my-orders' ? 'active' : ''
             }`}
             href='/dashboard/my-orders'>
-            My Orders
+            Dashboard
           </Link>
         </li>
-        <li className='mb-2'>
-          <Link
-            prefetch={false}
-            className={` hover:text-primary-dark ${
-              pathname === '/add-product' ? 'active' : ''
-            }`}
-            href='/add-product'>
-            Add Product
-          </Link>
-        </li>
-        <li className='mb-2'>
-          <Link
-            prefetch={false}
-            className={`hover:text-primary-dark ${
-              pathname === '/my-product' ? 'active' : ''
-            }`}
-            href='/my-product'>
-            Manage Product
-          </Link>
-        </li>
-        <li className='mb-2'>
-          <Link
-            prefetch={false}
-            className={`hover:text-primary-dark ${
-              pathname === '/wishlist' ? 'active' : ''
-            }`}
-            href='/wishlist'>
-            Wishlist
-          </Link>
-        </li>
-
         <li>
           <SignOutButton>
             <button className='btn btn-primary text-neutral w-full'>

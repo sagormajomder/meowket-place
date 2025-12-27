@@ -1,6 +1,5 @@
-import { SignedIn, SignedOut, SignOutButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut } from '@clerk/nextjs';
 import { currentUser } from '@clerk/nextjs/server';
-import Image from 'next/image';
 import Link from 'next/link';
 import MenuLinks from './MenuLinks';
 import UserSignIn from './UserSignIn';
@@ -83,7 +82,7 @@ export default async function Navbar() {
                 <Link
                   prefetch={false}
                   className='hover:text-primary-dark'
-                  href='/add-product'>
+                  href='/dashboard/add-product'>
                   Add Product
                 </Link>
               </li>
@@ -91,7 +90,7 @@ export default async function Navbar() {
                 <Link
                   prefetch={false}
                   className='hover:text-primary-dark'
-                  href='/my-product'>
+                  href='/dashboard/my-product'>
                   Manage Product
                 </Link>
               </li>

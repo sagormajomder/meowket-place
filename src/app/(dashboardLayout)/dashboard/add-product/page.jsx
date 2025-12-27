@@ -19,11 +19,9 @@ export default function AddProduct() {
   async function handleAddProduct(data) {
     const { productName, shortDesc, fullDesc, productPrice, photo } = data;
     const imageFile = photo[0];
-    // Store the image
     const formData = new FormData();
     formData.append('image', imageFile);
 
-    // upload image to the host and get image url
     const res = await fetch(
       `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`,
       {
@@ -33,11 +31,8 @@ export default function AddProduct() {
     );
 
     const photoResult = await res.json();
-    // console.log(photoResult);
     const photoUrl = photoResult.data.url;
-    // console.log(photoUrl);
 
-    // create new product
     const newProduct = {
       productName,
       shortDesc,
@@ -53,7 +48,6 @@ export default function AddProduct() {
       createdAt: new Date(),
     };
 
-    // Upload the new product into DB
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/add-product`,
       {
@@ -68,11 +62,9 @@ export default function AddProduct() {
 
     const resData = await response.json();
 
-    // console.log(resData);
-
     if (resData.id) {
       toast.success('Successfully product has been added');
-      router.push('/my-product');
+      router.push('/dashboard/my-product');
     } else {
       toast.error('Some error occured! Please try again');
       console.log(resData.error);
@@ -89,7 +81,6 @@ export default function AddProduct() {
           className='max-w-4xl mx-auto'
           onSubmit={handleSubmit(handleAddProduct)}>
           <fieldset className='fieldset'>
-            {/* Product Name */}
             <label htmlFor='p-name' className='label'>
               Product Name
             </label>
@@ -103,7 +94,6 @@ export default function AddProduct() {
             {errors.productName?.type === 'required' && (
               <span className='text-red-400'>Product Name is required!</span>
             )}
-            {/* Product short description */}
             <label htmlFor='p-short-desc' className='label'>
               Short Description
             </label>
@@ -119,7 +109,6 @@ export default function AddProduct() {
                 Product short description is required!
               </span>
             )}
-            {/* Product full description */}
             <label htmlFor='p-full-desc' className='label'>
               Full Description
             </label>
@@ -136,7 +125,6 @@ export default function AddProduct() {
               </span>
             )}
 
-            {/* Product Price */}
             <label htmlFor='p-price' className='label'>
               Product Price
             </label>
@@ -153,7 +141,6 @@ export default function AddProduct() {
               <span className='text-red-400'>Product Price is required!</span>
             )}
 
-            {/* Image */}
             <label htmlFor='image' className='label'>
               Product Photo
             </label>
